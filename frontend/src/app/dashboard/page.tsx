@@ -10,12 +10,15 @@ import {
   Calendar,
   User,
   Settings,
+  Moon,
+  Sun,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import { useTheme } from "next-themes";
 
 export default function Dashboard() {
   const [userName] = useState("John Doe");
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="flex h-screen bg-background">
@@ -66,16 +69,22 @@ export default function Dashboard() {
         {/* Header */}
         <header className="flex justify-between items-center mb-8">
           <div className="flex items-center gap-4">
-            <Image
-              src="https://via.placeholder.com/40"
-              alt="Profile"
-              className="rounded-full"
-            />
             <div>
               <h2 className="font-semibold">{userName}</h2>
             </div>
           </div>
           <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              {theme === "dark" ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </Button>
             <Button variant="ghost" size="icon">
               <Bell className="h-5 w-5" />
             </Button>
@@ -98,20 +107,28 @@ export default function Dashboard() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Stats Cards */}
-            <div className="bg-white p-6 rounded-xl shadow">
-              <h3 className="text-sm text-gray-500 mb-2">Total Habits</h3>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+              <h3 className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                Total Habits
+              </h3>
               <div className="text-3xl font-bold">12</div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow">
-              <h3 className="text-sm text-gray-500 mb-2">Completion Rate</h3>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+              <h3 className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                Completion Rate
+              </h3>
               <div className="text-3xl font-bold">85%</div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow">
-              <h3 className="text-sm text-gray-500 mb-2">Current Streak</h3>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+              <h3 className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                Current Streak
+              </h3>
               <div className="text-3xl font-bold">7 days</div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow">
-              <h3 className="text-sm text-gray-500 mb-2">Best Streak</h3>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+              <h3 className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                Best Streak
+              </h3>
               <div className="text-3xl font-bold">14 days</div>
             </div>
           </div>
@@ -130,10 +147,15 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Habit Cards */}
             {["Exercise", "Reading", "Meditation"].map((habit) => (
-              <div key={habit} className="bg-white p-6 rounded-xl shadow">
+              <div
+                key={habit}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow"
+              >
                 <h3 className="font-semibold mb-2">{habit}</h3>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-500">Today&aposs Status</span>
+                  <span className="text-gray-500 dark:text-gray-400">
+                    Today's Status
+                  </span>
                   <Button variant="outline" size="sm">
                     Mark Complete
                   </Button>
