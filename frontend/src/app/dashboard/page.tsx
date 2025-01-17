@@ -12,6 +12,7 @@ import {
   Settings,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Dashboard() {
   const [userName] = useState("John Doe");
@@ -65,7 +66,7 @@ export default function Dashboard() {
         {/* Header */}
         <header className="flex justify-between items-center mb-8">
           <div className="flex items-center gap-4">
-            <img
+            <Image
               src="https://via.placeholder.com/40"
               alt="Profile"
               className="rounded-full"
@@ -132,7 +133,7 @@ export default function Dashboard() {
               <div key={habit} className="bg-white p-6 rounded-xl shadow">
                 <h3 className="font-semibold mb-2">{habit}</h3>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-500">Today's Status</span>
+                  <span className="text-gray-500">Today&aposs Status</span>
                   <Button variant="outline" size="sm">
                     Mark Complete
                   </Button>

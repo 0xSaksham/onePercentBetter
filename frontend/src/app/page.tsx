@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export function HeroSection() {
+export default function Home() {
   return (
     <div className="h-screen flex flex-col items-center overflow-hidden">
       <header className="container mx-auto flex h-20 items-center justify-between px-4 w-full">
@@ -196,8 +196,4 @@ export function HeroSection() {
       </main>
     </div>
   );
-}
-
-export default function HomePage() {
-  return <HeroSection />;
 }
