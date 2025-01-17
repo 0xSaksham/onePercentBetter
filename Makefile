@@ -1,5 +1,5 @@
 dev:
-	cd frontend && npm run dev
+	cd frontend && pnpm dev
 
 build:
-	cd frontend && npm run build
+	cd frontend && pnpm build
